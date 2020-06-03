@@ -897,7 +897,19 @@ function renderPlaylist() {
 				else {
 	                output += '<li id="pl-' + (i + 1) + '" class="pl-entry">';
 	            }
-
+				
+				var imgurl ='';
+				if (typeof(data[i].Name) !== 'undefined' && data[i].file.substr(data[i].file.lastIndexOf('.') + 1).toLowerCase() == 'm4a') {
+					//?
+				}
+				else if (typeof(data[i].Name) !== 'undefined' || (data[i].file.substr(0, 4) == 'http' && typeof(data[i].Artist) === 'undefined')) {
+					//http://localhost:3000/images/radio-logos/thumbs/
+					console.log(data[i]);
+					var imgurl ='/images/radio-logos/thumbs/' + encodeURIComponent(data[i].Title) + '.jpg'
+				}else{
+					var imgurl ='/imagesw/thmcache/' + encodeURIComponent($.md5(data[i].file.substring(0,data[i].file.lastIndexOf('/')))) + '.jpg'
+				}
+				output +='<span class="pl-thumb"> <image src="' + imgurl+'"/></span>';
 				// iTunes AAC file
 				if (typeof(data[i].Name) !== 'undefined' && data[i].file.substr(data[i].file.lastIndexOf('.') + 1).toLowerCase() == 'm4a') {
 	                // Line 1 title
@@ -975,13 +987,19 @@ function renderPlaylist() {
 	                    output += data[i].Title + '</span>';
 					}
 					// Line 2 artist, album
+					console.log(data[i]);
 					output += '<span class="pll2">';
 					output += (typeof(data[i].Artist) === 'undefined') ? 'Unknown artist' : data[i].Artist;
 					output += ' - ';
 					output += (typeof(data[i].Album) === 'undefined') ?  'Unknown album' : data[i].Album;
+					output += (typeof(data[i].Album) === 'undefined') ?  'Unknown album' : data[i].Album;
 				}
+				//mmw
+				output += '</span>';
+				
 
-                output += '</span></div></li>';
+				//output += '</span></div></li>';
+				output += '</div></li>';
 
             } // End loop
         }
