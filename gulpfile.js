@@ -287,11 +287,11 @@ gulp.task('genindex', function(done){
 });
 
 gulp.task('patchheader', function (done) {
-    return gulp.src(pkg.app.src+'/../var/local/www/header.php')
-        .pipe($.if(!mode.force(), $.newer({ dest: pkg.app.dist+'/../local/www/'})))
+    return gulp.src(pkg.app.src+'/header.php')
+        .pipe($.if(!mode.force(), $.newer({ dest: pkg.app.dist})))
         .pipe($.removeCode({USEBUNDLE:true}))
         .pipe($.replace(/\/\/[ ]USEBUNDLE[ ]/g, ""))
-        .pipe(gulp.dest(DEPLOY_LOCATION+'/../local/www'))
+        .pipe(gulp.dest(DEPLOY_LOCATION))
         .on('end', done);
 });
 
