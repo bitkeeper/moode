@@ -399,6 +399,26 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="cdsp">Camilla DSP</label>
+				<div class="controls">
+					<select id="cdsp" class="input-large" name="cdsp">
+						<!-- $_select[cdsp] -->
+						<option value="On">On</option>
+						<option value="Off">Off</option>
+					</select>
+					<button class="btn btn-primary btn-small set-button btn-submit" type="submit" name="update_cdsp" value="novalue" $_cdsp_set_disabled>Set</button>
+					<a aria-label="Help" class="info-toggle" data-cmd="info-eqp" href="#notarget"><i class="fas fa-info-circle"></i></a>
+					<span id="info-eqp" class="help-block-configs help-block-margin hide">
+						Camilla DSP<br>
+						<b>Note:</b> Equalizer processing applies to MPD, Airplay and Spotify output.<br>
+                    </span>
+					<div style="margin-top:.5em">
+						<a href="cdsp-config.php"><button class="btn btn-medium btn-primary">Edit</button></a>&nbsp;Pipeline configuration<br>
+					</div>
+				</div>
+			</div>
 		</fieldset>
 
 		<!-- RENDERERS, AVAILABILITY IS CONTROLLED BY FEAT_BITMASK -->
