@@ -2273,10 +2273,9 @@ $('.context-menu a').click(function(e) {
     }
     //Song-lyrics
     else if ($(this).data('cmd') == 'song-lyrics') {
-      $('#lyrics').load('./templates/lyrics.html');
-      $('#lyrics-modal').modal();
-      $('#lyrics').load('lyrics.php');
-  //  $('#lyrics').load('lyrics.php',function(e){$('#lyrics-modal').modal('show');});
+		$('#lyrics').load('lyrics.php?content=loadingmessage');
+		$('#lyrics-modal').modal();
+		$('#lyrics').load('lyrics.php?content=lyrics');
     }
     // About
     else if ($(this).data('cmd') == 'aboutmoode') {

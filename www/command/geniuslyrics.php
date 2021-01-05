@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
-$ClientAccessToken = '<<<GENIUS.COM --- CLIENT ACCESS TOKEN>>>';
+$ClientAccessToken = 'JTtpVy1RqeqQHJo1xBvshM1b10BrjsR66IbB0vCW-UpFg1R2VSjN7g6Vd35WghKj';
 $ARTIST_=shell_exec('mpc --format %artist% | head -n 1');
 $ARTIST_=str_replace("\n","",$ARTIST_);
 $ARTIST=str_replace(" ","+",$ARTIST_);

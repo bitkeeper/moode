@@ -22,18 +22,13 @@
 
 require_once dirname(__FILE__) . '/inc/playerlib.php';
 
-//$file = '/var/local/www/lyrics.txt';
-//sysCmd('php /var/www/command/geniuslyrics_v3.php > ' . $file);
+if( isset($_GET['content']) && $_GET['content'] == 'lyrics') {
+    $cmd = 'php /var/www/command/geniuslyrics.php';
+    passthru('sudo ' . $cmd, $text);
+    echo $text;
+}
+else {
+    $tpl = 'lyrics.html';
+    eval('echoTemplate("' . getTemplate("templates/$tpl") . '");');
+}
 
-
-$cmd = 'php /var/www/command/geniuslyrics.php';
-
-passthru('sudo ' . $cmd, $text);
-
-//$fh = fopen($file, 'r');
-//$text = fread($fh, filesize($file));
-//fclose($fh);
-
-//$tpl = 'lyrics.html';
-//eval('echoTemplate("' . getTemplate("templates/$tpl") . '");');
-echo $text;
