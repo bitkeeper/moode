@@ -1405,6 +1405,12 @@ $('#context-menu-playback a').click(function(e) {
             $('#setfav-modal').modal();
         });
 	}
+  else if ($(this).data('cmd') == 'song-lyrics') {
+    $('#lyrics').load('./templates/lyrics.html');
+    $('#lyrics-modal').modal();
+    $('#lyrics').load('lyrics.php');
+//  $('#lyrics').load('lyrics.php',function(e){$('#lyrics-modal').modal('show');});
+  }
 	else if ($(this).data('cmd') == 'toggle-song') {
         sendMpdCmd('playid ' + toggleSongId);
 	}
